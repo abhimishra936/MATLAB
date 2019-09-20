@@ -1,0 +1,16 @@
+i=imread('cameraman.tif');
+new_i=imnoise(i,'salt & pepper',0.05);
+subplot(2,2,1);
+imshow(i);
+title("original");
+subplot(2,2,2);
+imshow(new_i);
+title("Salt & Pepper");
+A_avg=imfilter(new_i,(1/9)*ones(3));
+subplot(2,2,3);
+imshow(A_avg);
+title("Average Filter");
+K_avg = medfilt2(new_i);
+subplot(2,2,4);
+imshow(K_avg);
+title("Median Filter");
